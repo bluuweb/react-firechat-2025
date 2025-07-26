@@ -23,6 +23,7 @@ import {
   FormMessage,
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
+import { toast } from "sonner";
 
 const LoginPage = () => {
   const { loading, login } = useAuthActions();
@@ -40,15 +41,16 @@ const LoginPage = () => {
     if (!response.success) {
       console.log(response);
       if (response.error?.code === "auth/invalid-login-credentials") {
-        form.setError("email", {
-          type: "manual",
-          message: "Invalid email or password",
-        });
+        // form.setError("email", {
+        //   type: "manual",
+        //   message: "Invalid email or password",
+        // });
 
-        form.setError("password", {
-          type: "manual",
-          message: "Invalid email or password",
-        });
+        // form.setError("password", {
+        //   type: "manual",
+        //   message: "Invalid email or password",
+        // });
+        toast.error("Invalid email or password");
       }
       return;
     }

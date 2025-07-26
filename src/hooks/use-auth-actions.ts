@@ -60,6 +60,9 @@ export const useAuthActions = () => {
         await updateProfile(currentUser.user, {
           displayName: data.displayName,
         });
+
+        // Forzar la recarga del usuario para sincronizar con ReactFire
+        await currentUser.user.reload();
       }
 
       return {

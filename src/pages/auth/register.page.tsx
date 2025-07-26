@@ -34,8 +34,8 @@ const RegisterPage = () => {
       // photoURL: undefined,
       displayName: "",
       email: "",
-      password: "",
-      confirmPassword: "",
+      // password: "",
+      // confirmPassword: "",
     },
   });
 
