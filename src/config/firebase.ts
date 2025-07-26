@@ -1,8 +1,8 @@
 export const firebaseConfig = {
-  apiKey: "AIzaSyBYqwkzNNIikFRWpC3HUtKSJjmGCUUkXhs",
-  authDomain: "firechat-2025.firebaseapp.com",
-  projectId: "firechat-2025",
-  storageBucket: "firechat-2025.firebasestorage.app",
-  messagingSenderId: "655298480270",
-  appId: "1:655298480270:web:7c53e683cd86ee53fea1df",
+  apiKey: import.meta.env.VITE_FIREBASE_API_KEY,
+  authDomain: import.meta.env.VITE_FIREBASE_AUTH_DOMAIN,
+  projectId: import.meta.env.VITE_FIREBASE_PROJECT_ID,
+  storageBucket: import.meta.env.VITE_FIREBASE_STORAGE_BUCKET,
+  messagingSenderId: import.meta.env.VITE_FIREBASE_MESSAGING_SENDER_ID,
+  appId: import.meta.env.VITE_FIREBASE_APP_ID,
 };
