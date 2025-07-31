@@ -7,7 +7,7 @@ const DashboardPage = () => {
   const { logout } = useAuthActions();
 
   return (
-    <div className="container mx-auto p-4">
+    <div className="">
       <h1>Dashboard Page</h1>
       <p>Welcome, {user?.displayName || "Guest"}!</p>
       <p>Email: {user?.email || "Not provided"}</p>

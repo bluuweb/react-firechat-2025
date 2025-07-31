@@ -31,11 +31,10 @@ const RegisterPage = () => {
   const form = useForm<RegisterZodSchemaType>({
     resolver: zodResolver(registerZodSchema),
     defaultValues: {
-      // photoURL: undefined,
       displayName: "",
       email: "",
-      // password: "",
-      // confirmPassword: "",
+      password: "",
+      confirmPassword: "",
     },
   });
 
