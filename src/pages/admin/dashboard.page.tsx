@@ -9,8 +9,8 @@ const DashboardPage = () => {
   return (
     <div className="">
       <h1>Dashboard Page</h1>
-      <p>Welcome, {user?.displayName || "Guest"}!</p>
-      <p>Email: {user?.email || "Not provided"}</p>
+      <p>Welcome, {user!.displayName || "Guest"}!</p>
+      <p>Email: {user!.email || "Not provided"}</p>
       <Button
         variant={"destructive"}
         onClick={logout}

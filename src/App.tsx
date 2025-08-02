@@ -7,6 +7,7 @@ import RootLayout from "./layouts/root.layout";
 import ChatPage from "./pages/admin/chat.page";
 import DashboardPage from "./pages/admin/dashboard.page";
 import ProfilePage from "./pages/admin/profile.page";
+import TasksPage from "./pages/admin/tasks.page";
 import LoginPage from "./pages/auth/login.page";
 import RegisterPage from "./pages/auth/register.page";
 import HomePage from "./pages/public/home.page";
@@ -44,6 +45,10 @@ const App = () => {
           <Route
             path="chat"
             element={<ChatPage />}
+          />
+          <Route
+            path="tasks"
+            element={<TasksPage />}
           />
         </Route>
 
