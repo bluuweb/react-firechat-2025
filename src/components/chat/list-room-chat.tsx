@@ -1,5 +1,5 @@
 import { useRoomActions } from "@/hooks/use-room-actions";
-import { Button } from "../ui/button";
+import RoomChat from "./button-room-chat";
 
 interface Props {
   handleClickRoomId: (id: string) => void;
@@ -11,14 +11,13 @@ const ListRoomChat = ({ handleClickRoomId }: Props) => {
   return (
     <div>
       {rooms.map((room) => (
-        <Button
+        <RoomChat
           key={room.id}
-          onClick={() => handleClickRoomId(room.id)}
-        >
-          {room.id}
-        </Button>
+          room={room}
+          handleClickRoomId={handleClickRoomId}
+        />
       ))}
-      <pre>{JSON.stringify(rooms, null, 2)}</pre>
+      {/* <pre>{JSON.stringify(rooms, null, 2)}</pre> */}
     </div>
   );
 };
