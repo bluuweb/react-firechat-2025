@@ -8,8 +8,16 @@ interface Props {
 const ListRoomChat = ({ handleClickRoomId }: Props) => {
   const { rooms } = useRoomActions();
 
+  if (rooms.length === 0) {
+    return (
+      <div className="p-4 text-center text-sm text-muted-foreground">
+        No hay conversaciones aún
+      </div>
+    );
+  }
+
   return (
-    <div>
+    <div className="divide-y">
       {rooms.map((room) => (
         <RoomChat
           key={room.id}
@@ -17,7 +25,6 @@ const ListRoomChat = ({ handleClickRoomId }: Props) => {
           handleClickRoomId={handleClickRoomId}
         />
       ))}
-      {/* <pre>{JSON.stringify(rooms, null, 2)}</pre> */}
     </div>
   );
 };

@@ -53,17 +53,18 @@ const FormSearchFriend = ({ handleClickRoomId }: Props) => {
     <Form {...form}>
       <form
         onSubmit={form.handleSubmit(onSubmit)}
-        className="space-y-2"
+        className="flex gap-2"
       >
         <FormField
           control={form.control}
           name="email"
           render={({ field }) => (
-            <FormItem>
+            <FormItem className="flex-1">
               <FormControl>
                 <Input
                   type="email"
-                  placeholder="shadcn@mail.com"
+                  placeholder="Buscar por email..."
+                  className="h-9"
                   {...field}
                 />
               </FormControl>
@@ -73,11 +74,12 @@ const FormSearchFriend = ({ handleClickRoomId }: Props) => {
         />
         <Button
           type="submit"
-          variant={"outline"}
-          className="w-full"
-          disabled={isLoading}
+          variant="default"
+          size="sm"
+          disabled={isLoading || !form.watch("email")?.trim()}
+          className="h-9 px-3"
         >
-          {isLoading ? "Buscando Friend..." : "Buscar"}
+          {isLoading ? "⏳" : "🔍"}
         </Button>
       </form>
     </Form>

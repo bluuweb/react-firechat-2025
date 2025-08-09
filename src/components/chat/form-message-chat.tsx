@@ -47,17 +47,24 @@ const FormMessageChat = ({ roomId }: Props) => {
     <Form {...form}>
       <form
         onSubmit={form.handleSubmit(onSubmit)}
-        className="space-y-2"
+        className="flex gap-2 items-end"
       >
         <FormField
           control={form.control}
           name="text"
           render={({ field }) => (
-            <FormItem>
+            <FormItem className="flex-1">
               <FormControl>
                 <Input
-                  placeholder="shadcn"
+                  placeholder="Escribe tu mensaje..."
+                  className="resize-none border-2 focus:border-primary/50"
                   {...field}
+                  onKeyDown={(e) => {
+                    if (e.key === "Enter" && !e.shiftKey) {
+                      e.preventDefault();
+                      form.handleSubmit(onSubmit)();
+                    }
+                  }}
                 />
               </FormControl>
               <FormMessage />
@@ -66,9 +73,11 @@ const FormMessageChat = ({ roomId }: Props) => {
         />
         <Button
           type="submit"
-          disabled={isLoading}
+          disabled={isLoading || !form.watch("text")?.trim()}
+          size="lg"
+          className="h-10 px-4"
         >
-          {isLoading ? "enviando mensaje" : "enviar"}
+          {isLoading ? "⏳" : "📤"}
         </Button>
       </form>
     </Form>
