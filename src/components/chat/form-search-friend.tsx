@@ -15,6 +15,7 @@ import {
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
 import { useRoomActions } from "@/hooks/use-room-actions";
+import { Search } from "lucide-react";
 import { useTransition } from "react";
 import { toast } from "sonner";
 
@@ -37,7 +38,6 @@ const FormSearchFriend = ({ handleClickRoomId }: Props) => {
     startTransition(async () => {
       const response = await findOrCreateRoom(values.email);
 
-      // console.log(response);
       if (response.success) {
         handleClickRoomId(response.roomId);
         toast.success("Friend encontrado, comienza a chatear");
@@ -64,7 +64,7 @@ const FormSearchFriend = ({ handleClickRoomId }: Props) => {
                 <Input
                   type="email"
                   placeholder="Buscar por email..."
-                  className="h-9"
+                  className="h-9 bg-slate-50 border-slate-200 focus:border-blue-300 focus:bg-white transition-colors"
                   {...field}
                 />
               </FormControl>
@@ -77,12 +77,17 @@ const FormSearchFriend = ({ handleClickRoomId }: Props) => {
           variant="default"
           size="sm"
           disabled={isLoading || !form.watch("email")?.trim()}
-          className="h-9 px-3"
+          className="h-9 w-9 p-0 bg-blue-500 hover:bg-blue-600 text-white rounded-lg"
         >
-          {isLoading ? "⏳" : "🔍"}
+          {isLoading ? (
+            <div className="w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin" />
+          ) : (
+            <Search className="w-4 h-4" />
+          )}
         </Button>
       </form>
     </Form>
   );
 };
+
 export default FormSearchFriend;

@@ -13,6 +13,7 @@ import {
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
 import { useTaskActions } from "@/hooks/use-task-actions";
+import { Plus } from "lucide-react";
 import { useTransition } from "react";
 import { toast } from "sonner";
 
@@ -45,17 +46,18 @@ const FormTask = () => {
     <Form {...form}>
       <form
         onSubmit={form.handleSubmit(onSubmit)}
-        className="space-y-4"
+        className="grid grid-cols-1 md:grid-cols-2 gap-4"
       >
         <FormField
           control={form.control}
           name="title"
           render={({ field }) => (
             <FormItem>
-              <FormLabel>Title</FormLabel>
+              <FormLabel className="text-slate-700">Título</FormLabel>
               <FormControl>
                 <Input
-                  placeholder="Task title"
+                  placeholder="Escribe el título de la tarea..."
+                  className="bg-slate-50 border-slate-200 focus:border-blue-300 focus:bg-white transition-colors"
                   {...field}
                 />
               </FormControl>
@@ -68,10 +70,11 @@ const FormTask = () => {
           name="description"
           render={({ field }) => (
             <FormItem>
-              <FormLabel>Description</FormLabel>
+              <FormLabel className="text-slate-700">Descripción</FormLabel>
               <FormControl>
                 <Input
-                  placeholder="Task description"
+                  placeholder="Describe la tarea..."
+                  className="bg-slate-50 border-slate-200 focus:border-blue-300 focus:bg-white transition-colors"
                   {...field}
                 />
               </FormControl>
@@ -79,12 +82,25 @@ const FormTask = () => {
             </FormItem>
           )}
         />
-        <Button
-          type="submit"
-          disabled={isPending}
-        >
-          {isPending ? "Creating..." : "Create Task"}
-        </Button>
+        <div className="md:col-span-2">
+          <Button
+            type="submit"
+            disabled={isPending}
+            className="w-full bg-blue-500 hover:bg-blue-600 text-white"
+          >
+            {isPending ? (
+              <div className="flex items-center gap-2">
+                <div className="w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin" />
+                Creando...
+              </div>
+            ) : (
+              <div className="flex items-center gap-2">
+                <Plus className="w-4 h-4" />
+                Crear Tarea
+              </div>
+            )}
+          </Button>
+        </div>
       </form>
     </Form>
   );

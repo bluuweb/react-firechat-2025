@@ -12,6 +12,7 @@ import {
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
 import { useMessagesActions } from "@/hooks/user-messages-actions";
+import { Send } from "lucide-react";
 import { useTransition } from "react";
 import { toast } from "sonner";
 
@@ -57,7 +58,7 @@ const FormMessageChat = ({ roomId }: Props) => {
               <FormControl>
                 <Input
                   placeholder="Escribe tu mensaje..."
-                  className="resize-none border-2 focus:border-primary/50"
+                  className="resize-none border-2 focus:border-blue-300 rounded-full px-4 py-2 bg-slate-50 focus:bg-white transition-colors"
                   {...field}
                   onKeyDown={(e) => {
                     if (e.key === "Enter" && !e.shiftKey) {
@@ -75,9 +76,13 @@ const FormMessageChat = ({ roomId }: Props) => {
           type="submit"
           disabled={isLoading || !form.watch("text")?.trim()}
           size="lg"
-          className="h-10 px-4"
+          className="h-10 w-10 rounded-full bg-blue-500 hover:bg-blue-600 text-white p-0"
         >
-          {isLoading ? "⏳" : "📤"}
+          {isLoading ? (
+            <div className="w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin" />
+          ) : (
+            <Send className="w-4 h-4" />
+          )}
         </Button>
       </form>
     </Form>

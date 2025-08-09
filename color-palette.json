@@ -1,0 +1,76 @@
+{
+  "colorPalette": {
+    "brand": {
+      "primary": "#3B82F6",
+      "primaryLight": "#60A5FA",
+      "primaryDark": "#1D4ED8",
+      "secondary": "#8B5CF6",
+      "secondaryLight": "#A78BFA",
+      "accent": "#10B981"
+    },
+    "neutral": {
+      "background": "#FFFFFF",
+      "backgroundSecondary": "#F8FAFC",
+      "backgroundMuted": "#F1F5F9",
+      "surface": "#FFFFFF",
+      "surfaceHover": "#F8FAFC",
+      "border": "#E2E8F0",
+      "borderLight": "#F1F5F9"
+    },
+    "text": {
+      "primary": "#0F172A",
+      "secondary": "#475569",
+      "muted": "#64748B",
+      "light": "#94A3B8",
+      "inverse": "#FFFFFF"
+    },
+    "status": {
+      "success": "#10B981",
+      "successLight": "#34D399",
+      "warning": "#F59E0B",
+      "warningLight": "#FBBF24",
+      "error": "#EF4444",
+      "errorLight": "#F87171",
+      "info": "#3B82F6",
+      "infoLight": "#60A5FA"
+    },
+    "chat": {
+      "myMessage": "#3B82F6",
+      "myMessageText": "#FFFFFF",
+      "theirMessage": "#F1F5F9",
+      "theirMessageText": "#0F172A",
+      "online": "#10B981",
+      "offline": "#94A3B8"
+    },
+    "dark": {
+      "background": "#0F172A",
+      "backgroundSecondary": "#1E293B",
+      "surface": "#334155",
+      "text": "#F8FAFC",
+      "textMuted": "#94A3B8",
+      "border": "#475569"
+    }
+  },
+  "usage": {
+    "description": "Paleta de colores para FireChat 2025",
+    "notes": [
+      "Los colores están basados en una escala de azules y grises modernos",
+      "Compatible con modo claro y oscuro",
+      "Accesibilidad AAA para contraste de texto",
+      "Inspirado en aplicaciones de chat modernas como Discord, Slack, WhatsApp"
+    ],
+    "tailwindMapping": {
+      "primary": "brand.primary",
+      "secondary": "brand.secondary",
+      "accent": "brand.accent",
+      "background": "neutral.background",
+      "foreground": "text.primary",
+      "muted": "neutral.backgroundMuted",
+      "mutedForeground": "text.muted",
+      "border": "neutral.border",
+      "success": "status.success",
+      "warning": "status.warning",
+      "error": "status.error"
+    }
+  }
+}

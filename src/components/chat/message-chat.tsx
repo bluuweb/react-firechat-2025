@@ -1,5 +1,6 @@
 import { cn } from "@/lib/utils";
 import type { Message } from "@/schemas/room.schema";
+import { User } from "lucide-react";
 import { Suspense } from "react";
 import { useUser } from "reactfire";
 import FriendEmail from "./friend-email";
@@ -22,27 +23,34 @@ const MessageChat = ({ message }: Props) => {
     >
       <div
         className={cn(
-          "flex max-w-[70%] gap-2",
+          "flex max-w-[70%] gap-3",
           isOwn ? "flex-row-reverse" : "flex-row"
         )}
       >
-        <div className="w-8 h-8 bg-primary/10 rounded-full flex items-center justify-center flex-shrink-0 mt-auto">
-          <span className="text-xs">👤</span>
+        <div
+          className={cn(
+            "w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0 mt-auto",
+            isOwn ? "bg-blue-500" : "bg-slate-200"
+          )}
+        >
+          <User
+            className={cn("w-4 h-4", isOwn ? "text-white" : "text-slate-600")}
+          />
         </div>
         <div className="flex flex-col">
           <div
             className={cn(
-              "px-3 py-2 rounded-lg text-sm break-words",
+              "px-4 py-2 rounded-2xl text-sm break-words max-w-full",
               isOwn
-                ? "bg-primary text-primary-foreground rounded-br-sm"
-                : "bg-muted rounded-bl-sm"
+                ? "bg-blue-500 text-white rounded-br-md"
+                : "bg-slate-100 text-slate-900 rounded-bl-md"
             )}
           >
-            {message.text}
+            <p className="leading-relaxed">{message.text}</p>
           </div>
           <div
             className={cn(
-              "text-xs text-muted-foreground mt-1 px-1",
+              "text-xs text-slate-500 mt-1 px-2",
               isOwn ? "text-right" : "text-left"
             )}
           >
